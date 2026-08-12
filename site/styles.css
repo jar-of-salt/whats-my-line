@@ -60,6 +60,9 @@ div > div:nth-child(n+7):after {
 
 .nav-container > div:nth-child(n):after {
     --angle: calc(180 * (var(--index) - 1) / sibling-count());
-  transform: translateX(var(--angle) * 1px) translateY(var(--angle) * 1px);
+    --xpos: calc(cos(var(--angle)) * 300px);
+    --ypos: calc(sin(var(--angle)) * 200px);
+  
+  transform: translateX(var(--xpos)) translateY(var(--ypos));
   width: calc(100% / var(--index));
 }
