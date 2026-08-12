@@ -1,0 +1,65 @@
+body {
+    font-family: system-ui, sans-serif;
+    padding: 24px 300px;
+    color: #1b1b1f;
+}
+
+#greeting {
+    color: #3b82f6;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    cursor: pointer;
+}
+
+.nav-container {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.nav-container > * {
+  --index: sibling-index();
+}
+
+div > div {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 50%;
+  width: 50%;
+  transform-origin: bottom right;
+}
+
+div > div:after {
+  position: absolute;
+  content: '';
+  bottom: 0px;
+  right: 0px;
+  height: 25px;
+  width: 25px;
+  background: black;
+  border-radius: 50%;
+  transform: translateX(50%) translateY(50%);
+}
+div > div:after {
+  background: red;
+}
+
+div > div:nth-child(n+4):after {
+  background: orange;
+}
+div > div:nth-child(n+7):after {
+  background: green;
+}
+
+.nav-container > div:nth-child(n):after {
+    --angle: calc(180 * (var(--index) - 1) / sibling-count());
+  transform: translateX(var(--angle) * 1px) translateY(var(--angle) * 1px);
+  width: calc(100% / var(--index));
+}
