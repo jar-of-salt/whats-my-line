@@ -59,10 +59,10 @@ div > div:nth-child(n+7):after {
 }
 
 .nav-container > div:nth-child(n):after {
-    --angle: calc(180 * (var(--index) - 1) / sibling-count());
+    --angle: calc(180deg * (var(--index) - 1) / sibling-count());
     --xpos: calc(cos(var(--angle)) * 300px);
     --ypos: calc(sin(var(--angle)) * 200px);
   
   transform: translateX(var(--xpos)) translateY(var(--ypos));
-  width: calc(100% / var(--index));
+  width: calc(10px * var(--index));
 }
